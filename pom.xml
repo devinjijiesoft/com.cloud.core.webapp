@@ -12,6 +12,7 @@
 		<module>plugins/com.cloud.nvl.core.service</module>
 		<module>plugins/com.cloud.nvl.core.database</module>
 		<module>plugins/com.cloud.nvl.core.jpa</module>
+		<module>plugins/com.cloud.nvl.core.jpa.test</module>
 		<module>plugins/com.cloud.nvl.core.persistence</module>
 		<module>plugins/com.cloud.nvl.core.service.interface</module>
 		<module>features/com.cloud.nvl.core.feature</module>
@@ -45,6 +46,11 @@
 			<id>gemini-bundle</id>
 			<layout>p2</layout>
 			<url>${p2repo-url}/eclipse/gemini/updates/web/2.0.1/current/</url>
+		</repository>
+		<repository>
+			<id>gemini-jpa-bundle</id>
+			<layout>p2</layout>
+			<url>file:///home/murphy/test/gemini/current</url>
 		</repository>
 	</repositories>
 	<dependencies>

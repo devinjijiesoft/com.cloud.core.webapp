@@ -4,7 +4,7 @@ Bundle-Name: Database
 Bundle-SymbolicName: com.cloud.nvl.core.jpa
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: CLOUD
-Meta-Persistence: META-INF/Persistence.xml
+Meta-Persistence: META-INF/persistence.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: javax.persistence;version="2.0.3",
  javax.sql,
