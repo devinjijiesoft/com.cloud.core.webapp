@@ -47,11 +47,11 @@
 			<layout>p2</layout>
 			<url>${p2repo-url}/eclipse/gemini/updates/web/2.0.1/current/</url>
 		</repository>
-		<repository>
+		<!--repository>
 			<id>gemini-jpa-bundle</id>
 			<layout>p2</layout>
 			<url>file:///home/murphy/test/gemini/current</url>
-		</repository>
+		</repository-->
 	</repositories>
 	<dependencies>
 	</dependencies>
