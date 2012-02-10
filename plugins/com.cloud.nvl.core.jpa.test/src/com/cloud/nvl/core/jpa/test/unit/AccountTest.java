@@ -1,14 +1,13 @@
 package com.cloud.nvl.core.jpa.test.unit;
 
 import java.util.List;
-
+import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-
+import javax.persistence.metamodel.EntityType;
+import org.junit.Before;
+import org.junit.Test;
 import com.cloud.nvl.core.jpa.Account;
 import com.cloud.nvl.core.jpa.Customer;
 import com.cloud.nvl.core.jpa.test.JpaTest;
@@ -20,28 +19,12 @@ public class AccountTest extends JpaTest {
 
 	protected static EntityManagerFactory emf;
 
-	/* === Test Methods === */
-
-	@BeforeClass
-	public static void classSetUp() {
-		slog(TEST_NAME, "In setup");
+	@Before
+	public void setUp() throws Exception {
 		emf = lookupEntityManagerFactory(TEST_NAME, PERSISTENCE_UNIT_UNDER_TEST);
-		slog(TEST_NAME, "Got EMF - " + emf);
-	}
-
-	@AfterClass
-	public static void classCleanUp() {
-		if (emf != null) {
-			emf.close();
-			emf = null;
-		}
 	}
 
 	/* === Subclassed methods === */
-
-	public boolean needsDsfService() {
-		return false;
-	}
 
 	public EntityManagerFactory getEmf() {
 		return emf;
@@ -51,7 +34,8 @@ public class AccountTest extends JpaTest {
 		return PERSISTENCE_UNIT_UNDER_TEST;
 	}
 
-	public Object newObject() {
+	@Test
+	public void newObject() {
 		EntityManager em = (EntityManager) getEmf();
 		em.getTransaction().begin();
 
@@ -72,10 +56,10 @@ public class AccountTest extends JpaTest {
 			System.out.println("Account: " + acct);
 		}
 		em.close();
-		return em;
 	}
 
-	public Object queryObjects() {
+	@Test
+	public void queryObjects() {
 		EntityManager em = (EntityManager) getEmf();
 		TypedQuery<Account> q = em.createQuery("SELECT a FROM Account a",
 				Account.class);
@@ -85,6 +69,17 @@ public class AccountTest extends JpaTest {
 			System.out.println("Account: " + acct);
 		}
 		em.close();
-		return results;
+	}
+
+	@Test
+	public void testGettingMetamodel() {
+		log("testGettingMetamodel");
+		EntityManager em = getEmf().createEntityManager();
+		Set<EntityType<?>> s = em.getMetamodel().getEntities();
+		for (EntityType<?> et : s) {
+			log("Managed Entity name: " + et.getName());
+			log("Managed Entity class: " + et.getJavaType());
+			log("Classloader: " + et.getJavaType().getClassLoader());
+		}
 	}
 }
