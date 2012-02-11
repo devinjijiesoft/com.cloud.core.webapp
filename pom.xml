@@ -27,11 +27,11 @@
 		<p2repo-url>http://172.27.100.79/repo</p2repo-url>
 	</properties>
 	<repositories>
-		<repository>
+		<!--repository>
 			<id>eclipse-update</id>
 			<layout>p2</layout>
 			<url>${p2repo-url}/eclipse/updates/3.7milestones/S-3.7RC5-201106131736</url>
-		</repository>
+		</repository-->
 		<repository>
 			<id>eclipse-indigo</id>
 			<layout>p2</layout>
