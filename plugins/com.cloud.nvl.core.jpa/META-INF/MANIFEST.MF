@@ -13,3 +13,4 @@ Import-Package: javax.persistence;jpa="2.0",
  org.osgi.util.tracker
 Bundle-Activator: com.cloud.nvl.core.jpa.Activator
 Export-Package: com.cloud.nvl.core.jpa.model
+Require-Bundle: org.eclipse.gemini.jpa;bundle-version="1.0.0"
