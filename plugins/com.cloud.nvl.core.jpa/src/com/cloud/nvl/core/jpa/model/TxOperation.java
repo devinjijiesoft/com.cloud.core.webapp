@@ -1,4 +1,4 @@
-package com.cloud.nvl.core.jpa;
+package com.cloud.nvl.core.jpa.model;
 
 /**
  * JPA Sample class

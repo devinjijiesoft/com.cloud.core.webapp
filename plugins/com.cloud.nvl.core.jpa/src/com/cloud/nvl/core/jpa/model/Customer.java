@@ -1,6 +1,7 @@
-package com.cloud.nvl.core.jpa;
+package com.cloud.nvl.core.jpa.model;
 
 import javax.persistence.*;
+
 
 /**
  * JPA Sample class

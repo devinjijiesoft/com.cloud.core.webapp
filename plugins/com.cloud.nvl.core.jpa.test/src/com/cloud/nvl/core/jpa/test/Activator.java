@@ -10,20 +10,18 @@ import org.osgi.service.jpa.EntityManagerFactoryBuilder;
 import org.osgi.util.tracker.ServiceTracker;
 import org.osgi.util.tracker.ServiceTrackerCustomizer;
 
+/**
+ * JPA sample activator class
+ * 
+ * @author Murphy
+ */
 public class Activator implements BundleActivator, ServiceTrackerCustomizer {
 
 	BundleContext ctx;
 	ServiceTracker emfTracker;
 
 	public void start(BundleContext context) throws Exception {
-//		for (Bundle b : context.getBundles()) {
-//			if (b.getSymbolicName().equals("com.cloud.nvl.core.jpa")) {
-//				b.start();
-//			}
-//		}
 		ctx = context;
-		System.out.println("JPA Sample started");
-		JpaTest.context = ctx;
 		/*
 		 * We are in the same bundle as the persistence unit so the services
 		 * should be available when we start up (if nothing bad happened) and
@@ -38,7 +36,6 @@ public class Activator implements BundleActivator, ServiceTrackerCustomizer {
 
 	public void stop(BundleContext context) throws Exception {
 		emfTracker.close();
-		System.out.println("JPA Sample stopped");
 	}
 
 	/* ======================== */
@@ -50,8 +47,8 @@ public class Activator implements BundleActivator, ServiceTrackerCustomizer {
 		Object service = b.getBundleContext().getService(ref);
 		String unitName = (String) ref
 				.getProperty(EntityManagerFactoryBuilder.JPA_UNIT_NAME);
-		if (unitName.equals("Accounts")) {
-			System.out.println("JPA Sample service"
+		if (unitName.equals("AccountsTest")) {
+			System.out.println("(EntityManagerFactory)service is running: "
 					+ (EntityManagerFactory) service);
 		}
 		return service;
@@ -62,5 +59,4 @@ public class Activator implements BundleActivator, ServiceTrackerCustomizer {
 
 	public void removedService(ServiceReference ref, Object service) {
 	}
-
 }

@@ -1,16 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Database
+Meta-Persistence: META-INF/persistence.xml
+Bundle-Name: Gemini JPA Sample Persistence Unit
 Bundle-SymbolicName: com.cloud.nvl.core.jpa
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: CLOUD
-Meta-Persistence: META-INF/persistence.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: javax.persistence;version="2.0.3",
- javax.sql,
- org.apache.commons.dbcp;version="1.2.2.osgi",
- org.apache.derby.jdbc;version="10.5.1.1",
- org.h2;version="1.1.117"
-Export-Package: com.cloud.nvl.core.jpa
-Require-Bundle: org.eclipse.gemini.jpa;bundle-version="1.0.0",
- osgi.enterprise;bundle-version="4.2.0"
+Import-Package: javax.persistence;jpa="2.0",
+ javax.persistence.criteria;jpa="2.0",
+ javax.persistence.metamodel;jpa="2.0",
+ org.osgi.framework,
+ org.osgi.service.jpa,
+ org.osgi.util.tracker
+Bundle-Activator: com.cloud.nvl.core.jpa.Activator
+Export-Package: com.cloud.nvl.core.jpa.model

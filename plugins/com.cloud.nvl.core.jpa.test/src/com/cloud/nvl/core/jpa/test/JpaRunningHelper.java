@@ -12,7 +12,7 @@ import org.osgi.service.jpa.EntityManagerFactoryBuilder;
  * 
  * @author Murphy
  */
-public abstract class JpaTest {
+public abstract class JpaRunningHelper {
 
 	public static BundleContext context;
 
