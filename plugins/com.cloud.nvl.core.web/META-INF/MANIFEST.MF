@@ -17,7 +17,8 @@ Import-Package: com.cloud.nvl.core.service,
  org.springframework.web.context;version="3.0.5.RELEASE",
  org.springframework.web.servlet;version="3.0.5.RELEASE",
  org.springframework.web.servlet.mvc.annotation;version="3.0.5.RELEASE",
- org.springframework.web.servlet.view;version="3.0.5.RELEASE"
+ org.springframework.web.servlet.view;version="3.0.5.RELEASE",
+ org.springframework.web.servlet.view.freemarker;version="3.0.5.RELEASE"
 Web-ContextPath: /
 Bundle-ClassPath: .,WEB-INF/classes/
 Require-Bundle: org.springframework.context;bundle-version="3.0.5",
