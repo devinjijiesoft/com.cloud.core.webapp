@@ -22,7 +22,6 @@ public class Activator implements BundleActivator, ServiceTrackerCustomizer {
 
 	public void start(BundleContext context) throws Exception {
 		ctx = context;
-		JpaRunningHelper.context = context;
 		/*
 		 * We are in the same bundle as the persistence unit so the services
 		 * should be available when we start up (if nothing bad happened) and

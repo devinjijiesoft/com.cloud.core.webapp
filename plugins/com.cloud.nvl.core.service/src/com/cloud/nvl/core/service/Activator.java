@@ -3,6 +3,8 @@ package com.cloud.nvl.core.service;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
+import com.cloud.nvl.core.service.inter.IOperateService;
+
 public class Activator implements BundleActivator {
 
 	private static BundleContext context;

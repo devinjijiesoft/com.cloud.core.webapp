@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
+import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.gemini.jpa.provider.PersistenceProvider;
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ import com.cloud.nvl.core.jpa.model.Customer;
  * 
  * @author Murphy
  */
-public class JPATest {
+public class JPATest extends PlatformObject {
 	private static final String PU_NAME = "AccountsTest";
 	private EntityManagerFactory emf;
 	private EntityManager em;
