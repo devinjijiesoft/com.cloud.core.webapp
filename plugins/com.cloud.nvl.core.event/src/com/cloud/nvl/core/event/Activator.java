@@ -1,4 +1,4 @@
-package com.cloud.nvl.core.service;
+package com.cloud.nvl.core.event;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -17,7 +17,6 @@ public class Activator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
-//		context.registerService(IOperateService.class.getName(), new OperateService(), null);
 	}
 
 	/*

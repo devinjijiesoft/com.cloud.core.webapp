@@ -10,6 +10,7 @@
 	<modules>
 		<module>plugins/com.cloud.nvl.core.web</module>
 		<module>plugins/com.cloud.nvl.core.service</module>
+		<module>plugins/com.cloud.nvl.core.event</module>
 		<module>plugins/com.cloud.nvl.core.database</module>
 		<module>plugins/com.cloud.nvl.core.jpa</module>
 		<module>plugins/com.cloud.nvl.core.jpa.test</module>
@@ -21,9 +22,8 @@
 	</modules>
 	<properties>
 		<forceContextQualifier>002</forceContextQualifier>
-		<tycho-version>0.11.1</tycho-version>
-		<spring_version>3.1.0.RELEASE</spring_version>
-		<springdm_version>2.0.0.M1</springdm_version>
+		<tycho-version>0.13.0</tycho-version>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<p2repo-url>http://172.27.100.79/repo</p2repo-url>
 	</properties>
 	<repositories>
@@ -56,97 +56,65 @@
 	<dependencies>
 	</dependencies>
 	<build>
-        <plugins>
-            <plugin>
-                <groupId>org.sonatype.tycho</groupId>
-                <artifactId>tycho-maven-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <extensions>true</extensions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.tycho</groupId>
-                <artifactId>maven-osgi-packaging-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <includeSources>true</includeSources>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.tycho</groupId>
-                <artifactId>target-platform-configuration</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <resolver>p2</resolver>
-                    <pomDependencies>consider</pomDependencies>
-                    <environments>
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86</arch>
-                        </environment>
-                    </environments>
-                </configuration>
-            </plugin>
-            <!-- Build helper maven plugin sets the parsedVersion.osgiVersion property -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <id>set-osgi-version</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>parse-version</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <inherited>true</inherited>
-                <groupId>org.sonatype.tycho</groupId>
-                <artifactId>maven-osgi-source-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>plugin-source</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.sonatype.tycho</groupId>
-                    <artifactId>maven-osgi-compiler-plugin</artifactId>
-                    <version>${tycho-version}</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.5</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.7</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.3.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+		<plugins>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+			<groupId>${tycho-groupid}</groupId>
+			<artifactId>tycho-compiler-plugin</artifactId>
+			<version>${tycho-version}</version>
+		      </plugin>
+		</plugins>
+	</build>
 </project>
