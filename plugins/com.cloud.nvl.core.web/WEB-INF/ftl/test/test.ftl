@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +7,7 @@
 	src="/resources/scripts/test.js"></script>
 </head>
 <body>
-Hello Devin. this is jsp page ${flag}
+<h2 color="green">This is my first osgi ftl page2.</h2><br>
+ ${flag} 
 </body>
 </html>

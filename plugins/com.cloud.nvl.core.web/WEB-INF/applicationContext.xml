@@ -5,4 +5,5 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
 
 	<bean class="com.cloud.nvl.core.service.OperateService" />
+	<bean class="com.cloud.nvl.core.service.RequestService" />
 </beans>

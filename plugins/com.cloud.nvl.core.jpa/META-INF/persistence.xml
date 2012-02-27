@@ -10,7 +10,7 @@
         <class>com.cloud.nvl.core.jpa.model.Account</class>
         <class>com.cloud.nvl.core.jpa.model.Customer</class>
         <class>com.cloud.nvl.core.jpa.model.Transaction</class>
-
+       
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>

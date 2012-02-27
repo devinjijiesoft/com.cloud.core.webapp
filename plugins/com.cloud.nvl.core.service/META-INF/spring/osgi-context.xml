@@ -8,4 +8,6 @@
 
 	<osgi:service interface="com.cloud.nvl.core.service.inter.IOperateService"
 		ref="operateService" />
+     <osgi:service interface="com.cloud.nvl.core.service.inter.IRequestService"
+		ref="requestService" />
 </beans>

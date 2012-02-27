@@ -9,6 +9,7 @@
 	src="/resources/scripts/test.js"></script>
 </head>
 <body>
-Hello Devin. this is jsp page ${flag}
+<h2 color="green">Hello devin Liu.this is jsp page. </h2><br>
+${flag}
 </body>
 </html>
